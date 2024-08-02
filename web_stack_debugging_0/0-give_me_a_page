@@ -1,3 +1,12 @@
 #!/usr/bin/env bash
-# Start Apache so as to return a page containing Hello Holberton
-sudo service apache2 restart
+#Getting Apache running on the container, returns a page
+#contains HelloHolberton
+
+sudo sh -c 'echo "ServerName localhost" >> /etc/apache2/apache2.conf'
+service apache2 restart
+# Check if Apache is running
+if sudo service apache2 status | grep -q "apache2 is running"; then
+	echo "Apache is running"
+else
+	echo "Error: Apache is not running"
+fi

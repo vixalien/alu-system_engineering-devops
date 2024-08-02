@@ -10,14 +10,14 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend junior-frontend
+frontend angelo-frontend
         bind *:80
         mode http
-        default_backend junior-backend
-backend junior-backend
+        default_backend angelo-backend
+backend angelo-backend
         balance roundrobin
-        server 6238-web-01 54.196.216.8:80 check
-        server 6238-web-02 98.80.15.59:80 check
+        server 6088-web-01 54.91.51.107:80 check
+        server 6088-web-02 54.234.216.121:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
